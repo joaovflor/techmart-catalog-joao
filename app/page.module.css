@@ -6,7 +6,6 @@
 /* Hero Section */
 .hero {
   position: relative;
-  height: 85vh;
   min-height: 600px;
   width: 100%;
   overflow: hidden;
@@ -167,40 +166,31 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Catalog Carousels */
-.catalogWrapper {
+/* Catalog Section */
+.catalogSection {
   max-width: 1400px;
-  margin: -100px auto 0;
-  padding: 0 2rem;
-  position: relative;
-  z-index: 20;
+  margin: 80px auto 0;
+  padding: 0 2rem 6rem;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 3rem;
 }
 
-.carouselSection {
+.catalogHeader {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.75rem;
 }
 
-.sectionHeader {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  padding: 0 1rem;
-}
-
-.sectionTitle {
-  font-size: 1.8rem;
-  font-weight: 700;
+.catalogTitle {
+  font-size: 2rem;
+  font-weight: 800;
   color: var(--text-primary);
   position: relative;
   padding-left: 1rem;
 }
 
-.sectionTitle::before {
+.catalogTitle::before {
   content: '';
   position: absolute;
   left: 0;
@@ -211,49 +201,33 @@
   border-radius: 4px;
 }
 
-.viewAll {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
+.catalogDesc {
+  font-size: 1rem;
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color 0.2s ease;
+  padding-left: 1rem;
 }
 
-.viewAll:hover {
-  color: var(--text-primary);
-}
-
-.carousel {
-  width: 100%;
-  overflow-x: auto;
-  overflow-y: visible;
-  padding: 1rem;
-  /* For hover shadows */
-  margin: -1rem;
-  /* Offset padding */
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */
-}
-
-.carousel::-webkit-scrollbar {
-  display: none;
-}
-
-.carouselTrack {
-  display: flex;
+.catalogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  padding-bottom: 2rem;
-  /* prevent shadow clipping */
 }
 
-.carouselItem {
-  flex: 0 0 320px;
-  max-width: 320px;
+.catalogCtaWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .catalogGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .catalogGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 1024px) {

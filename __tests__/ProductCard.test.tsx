@@ -15,20 +15,16 @@ describe('ProductCard Component', () => {
     it('renders product information correctly', () => {
         render(<ProductCard {...mockProduct} />);
 
-        // Assert name
         expect(screen.getByText('NeoVision Ultra 8K')).toBeInTheDocument();
 
-        // Assert brand
         expect(screen.getByText('TechMart')).toBeInTheDocument();
 
-        // Assert formatted price
         expect(screen.getByText('R$ 16.999,00')).toBeInTheDocument();
     });
 
     it('displays low stock badge when stock is below 5', () => {
         render(<ProductCard {...mockProduct} />);
 
-        // The stock is 4, which is < 5, so it should display "Restam apenas 4"
         expect(screen.getByText('Restam apenas 4')).toBeInTheDocument();
     });
 

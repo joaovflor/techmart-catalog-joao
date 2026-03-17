@@ -3,7 +3,7 @@ import './globals.css';
 import Header from '@/components/Header/Header';
 
 export const metadata: Metadata = {
-  title: 'FuturaElectro - The Next Era of Tech',
+  title: 'TechMart - The Next Era of Tech',
   description: 'A premium, cinematic technology marketplace.',
 };
 

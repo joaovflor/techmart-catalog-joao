@@ -53,6 +53,35 @@ Run the test with:
 npm run test
 ```
 
+### Testando os estados da aplicação
+
+#### Loading state
+
+O loading skeleton é exibido automaticamente enquanto os dados são buscados. Para torná-lo visível por mais tempo, descomente a linha de delay em `app/api/products/route.ts`:
+
+```ts
+// antes
+// await new Promise((resolve) => setTimeout(resolve, 800));
+
+// depois (descomentar)
+await new Promise((resolve) => setTimeout(resolve, 800));
+```
+
+Acesse `/products` e observe o skeleton grid sendo exibido antes dos cards carregarem.
+
+#### Tratamento de erro
+
+Para simular uma falha na API e ver a tela de erro com o botão "Tentar novamente", adicione a linha abaixo no início da função `getProducts` em `lib/api.ts`:
+
+```ts
+export async function getProducts() {
+  throw new Error('Simulação de falha na API'); // <- adicionar esta linha
+  // ...restante do código
+}
+```
+
+Acesse `/products` — a mensagem de erro amigável será exibida. Para restaurar o funcionamento normal, remova a linha adicionada.
+
 ## 🌐 Deployment (Vercel)
 This Next.js 14 project is inherently optimized for Vercel. 
 

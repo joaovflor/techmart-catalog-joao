@@ -31,7 +31,7 @@
     "price": 899.00,
     "stock": 25,
     "rating": 4.6,
-    "image_url": "https://images.unsplash.com/photo-1606220588913-b3eea4ceb4d2?auto=format&fit=crop&q=80&w=800",
+    "image_url": "https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "O áudio do futuro, agora. Cancelamento de ruído estelar com driver de berílio, autonomia de bateria para 12 horas, e ergonomia ultraleve que se adéqua ao ouvido perfeitamente.",
     "available": true
   },
@@ -55,7 +55,7 @@
     "price": 5499.00,
     "stock": 35,
     "rating": 4.5,
-    "image_url": "https://images.unsplash.com/photo-1598327105666-5b89351cb31b?auto=format&fit=crop&q=80&w=800",
+    "image_url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "description": "A próxima era da conectividade móvel. Tela AMOLED 120hz de 6.8', Câmera de 200MP NightVision, Snapdragon 8 Gen 3 e 16GB de RAM. Bateria de 6000mAh.",
     "available": true
   },
@@ -93,6 +93,102 @@
     "rating": 4.9,
     "image_url": "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?auto=format&fit=crop&q=80&w=800",
     "description": "Produtividade de notebook em um formato fino e leve de tablet. Caneta magnética de baixíssima latência (9ms) inclusa. Ideal para edição e ilustração.",
+    "available": true
+  },
+  {
+    "id": 9,
+    "name": "VortexCam 4K",
+    "brand": "PixelLab",
+    "category": "Câmeras",
+    "price": 3799.00,
+    "stock": 6,
+    "rating": 4.7,
+    "image_url": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800",
+    "description": "Captura o mundo com sensor full-frame de 61MP, gravação em RAW 4K 120fps, estabilização óptica de 7 eixos e conectividade Wi-Fi 6 para transferência instantânea.",
+    "available": true
+  },
+  {
+    "id": 10,
+    "name": "ArcadeStick Pro",
+    "brand": "GameForge",
+    "category": "Games",
+    "price": 599.00,
+    "stock": 18,
+    "rating": 4.5,
+    "image_url": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=800",
+    "description": "Controle profissional para torneios. Botões Sanwa originais, layout arcade customizável, compatível com PS5, Xbox e PC via USB-C ou Bluetooth.",
+    "available": true
+  },
+  {
+    "id": 11,
+    "name": "IceCore SSD 4TB",
+    "brand": "DataVault",
+    "category": "Armazenamento",
+    "price": 1199.00,
+    "stock": 30,
+    "rating": 4.8,
+    "image_url": "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&q=80&w=800",
+    "description": "Velocidade de leitura de 7400 MB/s com interface PCIe Gen5. Dissipador de calor integrado e proteção contra dados em caso de queda de energia.",
+    "available": true
+  },
+  {
+    "id": 12,
+    "name": "HoloDesk 27 QHD",
+    "brand": "VisionCore",
+    "category": "Monitores",
+    "price": 2899.00,
+    "stock": 9,
+    "rating": 4.6,
+    "image_url": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&q=80&w=800",
+    "description": "Monitor IPS 27'' QHD 165Hz com cobertura 99% DCI-P3, tempo de resposta 1ms, suporte VESA e hub USB-C com 90W de carregamento.",
+    "available": true
+  },
+  {
+    "id": 13,
+    "name": "NexaRouter AX6000",
+    "brand": "NetPulse",
+    "category": "Redes",
+    "price": 1349.00,
+    "stock": 14,
+    "rating": 4.5,
+    "image_url": "https://images.unsplash.com/photo-1606904825846-647eb07f5be2?auto=format&fit=crop&q=80&w=800",
+    "description": "Wi-Fi 6E tri-band com velocidade de até 6 Gbps, cobertura de 350m², 8 antenas externas, sistema mesh nativo e painel de controle intuitivo.",
+    "available": true
+  },
+  {
+    "id": 14,
+    "name": "PulseBar Soundbar 5.1",
+    "brand": "SoundGen",
+    "category": "Áudio",
+    "price": 2199.00,
+    "stock": 5,
+    "rating": 4.8,
+    "image_url": "https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&q=80&w=800",
+    "description": "Experiência de cinema em casa com subwoofer sem fio, Dolby Atmos, DTS:X e calibração automática de sala via microfone. Conectividade HDMI eARC.",
+    "available": true
+  },
+  {
+    "id": 15,
+    "name": "FitBand Ultra 2",
+    "brand": "TechMart",
+    "category": "Wearables",
+    "price": 449.00,
+    "stock": 40,
+    "rating": 4.3,
+    "image_url": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?auto=format&fit=crop&q=80&w=800",
+    "description": "Monitore sua saúde 24h com sensor de oximetria, ECG contínuo, GPS integrado, 14 dias de bateria e resistência à água até 50m.",
+    "available": true
+  },
+  {
+    "id": 16,
+    "name": "DroneVision X3",
+    "brand": "PixelLab",
+    "category": "Drones",
+    "price": 6499.00,
+    "stock": 3,
+    "rating": 4.9,
+    "image_url": "https://images.unsplash.com/photo-1473968512647-3e447244af8f?auto=format&fit=crop&q=80&w=800",
+    "description": "Drone profissional com câmera 4K/60fps, estabilizador de 3 eixos, alcance de 12km, tempo de voo de 40 minutos e detecção de obstáculos omnidirecional.",
     "available": true
   }
 ]

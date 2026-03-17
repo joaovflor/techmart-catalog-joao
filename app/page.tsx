@@ -8,14 +8,8 @@ import StaggerContainer, { StaggerItem } from '@/components/Animations/StaggerCo
 
 export default async function Home() {
   const products = await getProducts();
-
-  // Categorize for different carousels
-  const destaques = products.filter((p: any) => p.rating >= 4.8);
-  const audio = products.filter((p: any) => p.category === 'Áudio');
-  const lowStock = products.filter((p: any) => p.stock < 5 && p.stock > 0);
-
-  // The hero product
   const heroProduct = products.find((p: any) => p.id === 1) || products[0];
+  const featured = products.slice(0, 3);
 
   return (
     <div className={styles.main}>
@@ -62,65 +56,31 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Catalog Section - Streaming Style Carousels */}
-      <div className={styles.catalogWrapper}>
-        <section className={styles.carouselSection}>
-          <FadeUp delay={0.2}>
-            <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>Destaques e Mais Bem Avaliados</h2>
-              <Link href="/categorias/destaques" className={styles.viewAll}>
-                Ver todos <ChevronRight size={16} />
-              </Link>
-            </div>
-          </FadeUp>
-
-          <div className={styles.carousel}>
-            <StaggerContainer staggerDelay={0.15} className={styles.carouselTrack}>
-              {destaques.map((product: any) => (
-                <StaggerItem key={product.id} className={styles.carouselItem}>
-                  <ProductCard {...product} priority={true} />
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+      {/* Catalog Section */}
+      <section className={styles.catalogSection}>
+        <FadeUp delay={0.2}>
+          <div className={styles.catalogHeader}>
+            <h2 className={styles.catalogTitle}>Catálogo</h2>
+            <p className={styles.catalogDesc}>Conheça alguns dos produtos disponíveis na TechMart.</p>
           </div>
-        </section>
+        </FadeUp>
 
-        <section className={styles.carouselSection}>
-          <FadeUp delay={0.2}>
-            <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>Últimas Unidades - Corra!</h2>
-            </div>
-          </FadeUp>
+        <StaggerContainer staggerDelay={0.15} className={styles.catalogGrid}>
+          {featured.map((product: any) => (
+            <StaggerItem key={product.id}>
+              <ProductCard {...product} priority={true} />
+            </StaggerItem>
+          ))}
+        </StaggerContainer>
 
-          <div className={styles.carousel}>
-            <StaggerContainer staggerDelay={0.15} className={styles.carouselTrack}>
-              {lowStock.map((product: any) => (
-                <StaggerItem key={product.id} className={styles.carouselItem}>
-                  <ProductCard {...product} />
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+        <FadeUp delay={0.3}>
+          <div className={styles.catalogCtaWrapper}>
+            <Link href="/products" className={styles.primaryBtn}>
+              Ver Catálogo Completo <ChevronRight size={18} />
+            </Link>
           </div>
-        </section>
-
-        <section className={styles.carouselSection}>
-          <FadeUp delay={0.2}>
-            <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>Imersão Sonora</h2>
-            </div>
-          </FadeUp>
-
-          <div className={styles.carousel}>
-            <StaggerContainer staggerDelay={0.15} className={styles.carouselTrack}>
-              {audio.map((product: any) => (
-                <StaggerItem key={product.id} className={styles.carouselItem}>
-                  <ProductCard {...product} />
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </section>
-      </div>
+        </FadeUp>
+      </section>
     </div>
   );
 }

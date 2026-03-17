@@ -1,28 +1,18 @@
-import products from '@/data/products.json';
-
-// Simulate an API call delay
-const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
 
 export async function getProducts() {
-    // Uncomment the delay to test loading states
-    // await delay(800);
+  const res = await fetch(`${BASE_URL}/api/products`, { cache: 'no-store' });
 
-    // Future API implementation:
-    // const res = await fetch('https://api.techmart.com/products');
-    // return res.json();
+  if (!res.ok) {
+    throw new Error('Falha ao buscar produtos');
+  }
 
-    return products;
+  const data = await res.json();
+  return data.products;
 }
 
 export async function getProduct(id: number | string) {
-    // Uncomment the delay to test loading states
-    // await delay(800);
-
-    // Future API implementation:
-    // const res = await fetch(`https://api.techmart.com/products/${id}`);
-    // return res.json();
-
-    const parsedId = typeof id === 'string' ? parseInt(id, 10) : id;
-    const product = products.find(p => p.id === parsedId);
-    return product || null;
+  const products = await getProducts();
+  const parsedId = typeof id === 'string' ? parseInt(id, 10) : id;
+  return products.find((p: { id: number }) => p.id === parsedId) || null;
 }

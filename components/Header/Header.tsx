@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Search, ShoppingCart, User, ChevronDown } from 'lucide-react';
 import styles from './Header.module.css';
+import NavLinks from './NavLinks';
 
 export default function Header() {
     return (
@@ -10,15 +11,10 @@ export default function Header() {
                     <div className={styles.logoIcon}>
                         <div className={styles.logoShapes}></div>
                     </div>
-                    <span className={styles.logoText}>FuturaElectro</span>
+                    <span className={styles.logoText}>TechMart</span>
                 </Link>
 
-                <nav className={styles.nav}>
-                    <Link href="/" className={styles.navLinkActive}>Inicio</Link>
-                    <Link href="/ofertas" className={styles.navLink}>Ofertas</Link>
-                    <Link href="/novidades" className={styles.navLink}>Novidades</Link>
-                    <Link href="/categorias" className={styles.navLink}>Categorias</Link>
-                </nav>
+                <NavLinks />
 
                 <div className={styles.actions}>
                     <div className={styles.searchBar}>

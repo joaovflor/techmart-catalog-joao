@@ -1,4 +1,5 @@
-import { Star, ShieldCheck, Truck, Zap } from 'lucide-react';
+import { Star, ShieldCheck, Truck, Zap, ChevronLeft } from 'lucide-react';
+import Link from 'next/link';
 import styles from './ProductDetail.module.css';
 import FadeUp from '@/components/Animations/FadeUp';
 import StaggerContainer, { StaggerItem } from '@/components/Animations/StaggerContainer';
@@ -23,13 +24,19 @@ export default function ProductDetail({ product }: ProductDetailProps) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.imageSection}>
-        <FadeUp delay={0.2}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={product.image_url} alt={product.name} className={styles.image} />
-          <div className={styles.imageOverlay} />
-          <div className={styles.brandBadge}>{product.brand}</div>
-        </FadeUp>
+      <div>
+        <Link href="/products" className={styles.backBtn}>
+          <ChevronLeft size={20} />
+          Voltar
+        </Link>
+        <div className={styles.imageSection}>
+          <FadeUp delay={0.2}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={product.image_url} alt={product.name} className={styles.image} />
+            <div className={styles.imageOverlay} />
+            <div className={styles.brandBadge}>{product.brand}</div>
+          </FadeUp>
+        </div>
       </div>
 
       <div className={styles.contentSection}>
@@ -40,7 +47,7 @@ export default function ProductDetail({ product }: ProductDetailProps) {
                 <Star size={16} fill="currentColor" color="#fbbf24" />
                 <span>{product.rating.toFixed(1)}</span>
               </div>
-              {isLowStock && <div className={`${styles.badge} ${styles.badgeUrgency}`}>Últimas un.</div>}
+              {isLowStock && <div className={`${styles.badge} ${styles.badgeUrgency}`}>Últimas unidades</div>}
               {isOutOfStock && <div className={`${styles.badge} ${styles.badgeOut}`}>Esgotado</div>}
             </div>
             <h1 className={styles.title}>{product.name}</h1>
