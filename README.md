@@ -8,7 +8,7 @@ Created as a demonstration of high-level Front-End Architecture and UX engineeri
 
 *   **Framework:** Next.js 14+ with App Router to leverage React Server Components for performance, and layout nesting for predictable UI rendering.
 *   **Styling Strategy:** Pure CSS Modules (`.module.css`) to enforce component-level scoping without massive runtime overhead, ensuring buttery smooth CSS-driven animations (e.g. `transform`, `opacity`) avoiding layout thrashing.
-*   **Data Fetching:** Hybrid approach. We use Next.js Route Handlers (`app/api/products/route.ts`) to serve a mock JSON database. The Server Components (`app/page.tsx` and `app/products/[id]/page.tsx`) consume these APIs natively through `fetch` without overhead for the client, avoiding `fs.readFileSync` problems on platforms like Vercel.
+*   **Data Fetching:** Hybrid approach. Server Components (`app/page.tsx`, `app/products/page.tsx` and `app/products/[id]/page.tsx`) import `data/products.json` directly via `lib/api.ts` — compatible with Vercel's serverless environment and avoiding `fs.readFileSync` or absolute-URL `fetch` issues. Next.js Route Handlers (`app/api/products/route.ts`) remain available for client-side consumption.
 *   **Loading UI:** Streaming-style custom Skeleton Loaders replacing generic spinners, built with `app/loading.tsx`. This retains the exact structural grid of the final layout to prevent "layout jumps" and increase perceived loading speed.
 *   **Error Boundaries:** High-tech themed custom error UIs (`app/error.tsx`) that guide the user to gracefully retry the operation instead of showing a raw stack trace.
 *   **Performance:** Animations strictly utilize `opacity` and `transform` managed by the GPU. Media is loaded eagerly/lazily appropriately using native HTML attributes. 
@@ -64,30 +64,32 @@ npx jest ProductCard
 npx jest ProductFilters
 ```
 
-**Casos cobertos — ProductCard:**
-- Renderiza nome, marca e preço corretamente
-- Exibe badge "Restam apenas N" quando estoque < 5
-- Exibe badge "Esgotado" quando estoque = 0
+**Casos cobertos — ProductCard** (`__tests__/ProductCard.test.tsx`):
+- `renders product information correctly` — verifica nome (`NeoVision Ultra 8K`), marca (`TechMart`) e preço formatado (`R$ 16.999,00`)
+- `displays low stock badge when stock is below 5` — exibe badge `"Restam apenas 4"` quando `stock: 4`
+- `displays out of stock badge when stock is 0` — exibe badge `"Esgotado"` quando `stock: 0`
 
-**Casos cobertos — ProductFilters:**
-- Renderiza o campo de busca
-- Botão "Todos" aparece ativo por padrão (sem filtro aplicado)
-- Ao digitar no input, chama `router.push` com `?search=`
-- Ao clicar em uma categoria, chama `router.push` com `?category=`
-- Ao clicar em "Todos", remove o filtro de categoria da URL
+**Casos cobertos — ProductFilters** (`__tests__/ProductFilters.test.tsx`):
+- `renders the search input` — o campo com placeholder `"Buscar produto..."` está presente no DOM
+- `renders "Todos" category button as active by default` — botão `"Todos"` possui a classe `active` quando nenhuma categoria está selecionada
+- `calls router.push with search param when typing` — ao digitar `"NeoVision"`, chama `router.push('/products?search=NeoVision')`
+- `calls router.push with category param when clicking a category` — ao clicar em `"Notebooks"`, chama `router.push('/products?category=Notebooks')`
+- `calls router.push without category param when clicking "Todos"` — ao clicar em `"Todos"` com categoria ativa, chama `router.push('/products?')`
 
 ### Testando os estados da aplicação
 
 #### Loading state (skeleton)
 
-O skeleton é exibido automaticamente enquanto os dados são buscados. Para torná-lo visível por mais tempo, descomente a linha de delay em `app/api/products/route.ts`:
+O skeleton é exibido automaticamente enquanto o Server Component carrega. Para torná-lo visível por mais tempo, adicione um delay artificial no início de `getProducts` em `lib/api.ts`:
 
 ```ts
-// descomente esta linha:
-await new Promise((resolve) => setTimeout(resolve, 800));
+export async function getProducts() {
+  await new Promise((resolve) => setTimeout(resolve, 2000)); // <- adicionar
+  return productsData;
+}
 ```
 
-Acesse `/products` e observe o grid de skeletons antes dos cards carregarem.
+Acesse `/products` e observe o grid de skeletons antes dos cards carregarem. Remova a linha para restaurar o carregamento imediato.
 
 #### Tratamento de erro
 
@@ -106,7 +108,7 @@ Acesse `/products` — a mensagem de erro amigável será exibida. Remova a linh
 This Next.js 14 project is inherently optimized for Vercel. 
 
 **Vercel Deployment Link:**
-*(Insert standard Vercel deploy URL here upon integration, e.g., https://techmart-catalog-demo.vercel.app)*
+*https://techmart-catalog-joao-q9usfd9v4-joaovflors-projects.vercel.app/*
 
 1. Push to GitHub.
 2. Import the project in Vercel.
