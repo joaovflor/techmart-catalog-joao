@@ -1,5 +1,5 @@
 .categories {
-  margin-top: 1.25rem;
+  flex-basis: 100%;
 }
 
 .searchBar {

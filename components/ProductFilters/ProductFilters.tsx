@@ -13,10 +13,9 @@ const CATEGORIES = [
 interface ProductFiltersProps {
   currentSearch: string;
   currentCategory: string;
-  slot: 'search' | 'categories';
 }
 
-export default function ProductFilters({ currentSearch, currentCategory, slot }: ProductFiltersProps) {
+export default function ProductFilters({ currentSearch, currentCategory }: ProductFiltersProps) {
   const router = useRouter();
 
   function updateParams(updates: Record<string, string>) {
@@ -29,8 +28,8 @@ export default function ProductFilters({ currentSearch, currentCategory, slot }:
     router.push(`/products?${params.toString()}`);
   }
 
-  if (slot === 'search') {
-    return (
+  return (
+    <>
       <div className={styles.searchBar}>
         <Search size={16} className={styles.searchIcon} />
         <input
@@ -42,23 +41,21 @@ export default function ProductFilters({ currentSearch, currentCategory, slot }:
           aria-label="Buscar produto"
         />
       </div>
-    );
-  }
 
-  return (
-    <div className={styles.categories} role="group" aria-label="Filtrar por categoria">
-      {CATEGORIES.map((cat) => {
-        const isActive = cat === 'Todos' ? !currentCategory : currentCategory === cat;
-        return (
-          <button
-            key={cat}
-            onClick={() => updateParams({ category: cat === 'Todos' ? '' : cat })}
-            className={`${styles.catBtn} ${isActive ? styles.active : ''}`}
-          >
-            {cat}
-          </button>
-        );
-      })}
-    </div>
+      <div className={styles.categories} role="group" aria-label="Filtrar por categoria">
+        {CATEGORIES.map((cat) => {
+          const isActive = cat === 'Todos' ? !currentCategory : currentCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => updateParams({ category: cat === 'Todos' ? '' : cat })}
+              className={`${styles.catBtn} ${isActive ? styles.active : ''}`}
+            >
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+    </>
   );
 }

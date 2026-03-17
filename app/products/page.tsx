@@ -1,6 +1,5 @@
 import ProductCard from '@/components/ProductCard/ProductCard';
-import ProductSearch from '@/components/ProductFilters/ProductSearch';
-import ProductCategories from '@/components/ProductFilters/ProductCategories';
+import ProductFilters from '@/components/ProductFilters/ProductFilters';
 import { getProducts } from '@/lib/api';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -29,16 +28,13 @@ export default async function ProductsPage({
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <div className={styles.headerTop}>
-          <div>
-            <h1 className={styles.title}>Catálogo</h1>
-            <p className={styles.subtitle}>
-              {filtered.length} produto{filtered.length !== 1 ? 's' : ''} encontrado{filtered.length !== 1 ? 's' : ''}
-            </p>
-          </div>
-          <ProductSearch currentSearch={search || ''} currentCategory={category || ''} />
+        <div className={styles.titleGroup}>
+          <h1 className={styles.title}>Catálogo</h1>
+          <p className={styles.subtitle}>
+            {filtered.length} produto{filtered.length !== 1 ? 's' : ''} encontrado{filtered.length !== 1 ? 's' : ''}
+          </p>
         </div>
-        <ProductCategories currentSearch={search || ''} currentCategory={category || ''} />
+        <ProductFilters currentSearch={search || ''} currentCategory={category || ''} />
       </div>
 
       {paginated.length > 0 ? (
