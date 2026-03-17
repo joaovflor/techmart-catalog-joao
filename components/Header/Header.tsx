@@ -17,10 +17,6 @@ export default function Header() {
                 <NavLinks />
 
                 <div className={styles.actions}>
-                    <div className={styles.searchBar}>
-                        <Search className={styles.searchIcon} size={18} />
-                        <input type="text" placeholder="Buscar por produto..." className={styles.searchInput} />
-                    </div>
 
                     <button className={styles.iconButton} aria-label="Carrinho">
                         <ShoppingCart size={20} />

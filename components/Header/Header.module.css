@@ -109,23 +109,6 @@
     gap: 1.5rem;
 }
 
-.searchBar {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--border-light);
-    border-radius: 100px;
-    padding: 0.5rem 1rem;
-    width: 280px;
-    transition: all 0.3s ease;
-}
-
-.searchBar:focus-within {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.1);
-}
-
 .searchIcon {
     color: var(--text-muted);
     margin-right: 0.5rem;
@@ -186,9 +169,5 @@
     .nav {
         display: none;
         /* Simplification for mobile */
-    }
-
-    .searchBar {
-        width: 200px;
     }
 }
