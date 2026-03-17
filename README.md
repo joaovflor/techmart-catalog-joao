@@ -44,43 +44,63 @@ Created as a demonstration of high-level Front-End Architecture and UX engineeri
 
 3.  Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 🧪 Testing
+## 🧪 Testes
 
-The repository includes a Unit Test using **Jest** and **React Testing Library** pointing at the `ProductCard` component to assert correct rendering and conditional stock tags rendering.
+### Testes unitários
 
-Run the test with:
+O projeto inclui testes com **Jest** e **React Testing Library** cobrindo os componentes `ProductCard` e `ProductFilters`.
+
+Para rodar todos os testes:
 ```bash
 npm run test
 ```
 
+Para rodar um arquivo específico:
+```bash
+# Testa renderização e badges de estoque do ProductCard
+npx jest ProductCard
+
+# Testa busca, filtro por categoria e integração com router do ProductFilters
+npx jest ProductFilters
+```
+
+**Casos cobertos — ProductCard:**
+- Renderiza nome, marca e preço corretamente
+- Exibe badge "Restam apenas N" quando estoque < 5
+- Exibe badge "Esgotado" quando estoque = 0
+
+**Casos cobertos — ProductFilters:**
+- Renderiza o campo de busca
+- Botão "Todos" aparece ativo por padrão (sem filtro aplicado)
+- Ao digitar no input, chama `router.push` com `?search=`
+- Ao clicar em uma categoria, chama `router.push` com `?category=`
+- Ao clicar em "Todos", remove o filtro de categoria da URL
+
 ### Testando os estados da aplicação
 
-#### Loading state
+#### Loading state (skeleton)
 
-O loading skeleton é exibido automaticamente enquanto os dados são buscados. Para torná-lo visível por mais tempo, descomente a linha de delay em `app/api/products/route.ts`:
+O skeleton é exibido automaticamente enquanto os dados são buscados. Para torná-lo visível por mais tempo, descomente a linha de delay em `app/api/products/route.ts`:
 
 ```ts
-// antes
-// await new Promise((resolve) => setTimeout(resolve, 800));
-
-// depois (descomentar)
+// descomente esta linha:
 await new Promise((resolve) => setTimeout(resolve, 800));
 ```
 
-Acesse `/products` e observe o skeleton grid sendo exibido antes dos cards carregarem.
+Acesse `/products` e observe o grid de skeletons antes dos cards carregarem.
 
 #### Tratamento de erro
 
-Para simular uma falha na API e ver a tela de erro com o botão "Tentar novamente", adicione a linha abaixo no início da função `getProducts` em `lib/api.ts`:
+Para simular uma falha na API e ver a tela de erro com o botão "Tentar novamente", adicione esta linha no início de `getProducts` em `lib/api.ts`:
 
 ```ts
 export async function getProducts() {
-  throw new Error('Simulação de falha na API'); // <- adicionar esta linha
-  // ...restante do código
+  throw new Error('Simulação de falha na API'); // <- adicionar
+  // ...
 }
 ```
 
-Acesse `/products` — a mensagem de erro amigável será exibida. Para restaurar o funcionamento normal, remova a linha adicionada.
+Acesse `/products` — a mensagem de erro amigável será exibida. Remova a linha para restaurar o funcionamento normal.
 
 ## 🌐 Deployment (Vercel)
 This Next.js 14 project is inherently optimized for Vercel. 
