@@ -1,5 +1,6 @@
 import ProductCard from '@/components/ProductCard/ProductCard';
-import ProductFilters from '@/components/ProductFilters/ProductFilters';
+import ProductSearch from '@/components/ProductFilters/ProductSearch';
+import ProductCategories from '@/components/ProductFilters/ProductCategories';
 import { getProducts } from '@/lib/api';
 import Link from 'next/link';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
@@ -10,9 +11,9 @@ const PAGE_SIZE = 8;
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ page?: string; search?: string; category?: string }>;
+  searchParams: { page?: string; search?: string; category?: string };
 }) {
-  const { page, search, category } = await searchParams;
+  const { page, search, category } = searchParams;
   const currentPage = Math.max(1, parseInt(page || '1', 10));
   const allProducts = await getProducts();
 
@@ -35,9 +36,9 @@ export default async function ProductsPage({
               {filtered.length} produto{filtered.length !== 1 ? 's' : ''} encontrado{filtered.length !== 1 ? 's' : ''}
             </p>
           </div>
-          <ProductFilters currentSearch={search || ''} currentCategory={category || ''} slot="search" />
+          <ProductSearch currentSearch={search || ''} currentCategory={category || ''} />
         </div>
-        <ProductFilters currentSearch={search || ''} currentCategory={category || ''} slot="categories" />
+        <ProductCategories currentSearch={search || ''} currentCategory={category || ''} />
       </div>
 
       {paginated.length > 0 ? (
