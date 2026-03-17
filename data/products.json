@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "name": "NeoVision Ultra 8K",
+    "brand": "TechMart",
+    "category": "TVs",
+    "price": 16999.00,
+    "stock": 4,
+    "rating": 4.9,
+    "image_url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&q=80&w=800",
+    "description": "Mergulhe na resolução 8K com a melhor experiência visual do mercado. Painel OLED de 75', taxa de atualização de 144Hz, HDR10+ Ativo, cores vibrantes com alto contraste, e sistema de som 3D surround integrado.",
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "TitanX Pro Gamer",
+    "brand": "TechMart",
+    "category": "Notebooks",
+    "price": 7999.00,
+    "stock": 12,
+    "rating": 4.8,
+    "image_url": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=800",
+    "description": "Desempenho Extremo. Processador i9 de 13ª geração, placa de vídeo RTX 4080 12GB. Tela IPS QHD de 240Hz. Construção premium em alumínio e iluminação RGB individual por tecla.",
+    "available": true
+  },
+  {
+    "id": 3,
+    "name": "Eclipse Buds Pro",
+    "brand": "SoundGen",
+    "category": "Áudio",
+    "price": 899.00,
+    "stock": 25,
+    "rating": 4.6,
+    "image_url": "https://images.unsplash.com/photo-1606220588913-b3eea4ceb4d2?auto=format&fit=crop&q=80&w=800",
+    "description": "O áudio do futuro, agora. Cancelamento de ruído estelar com driver de berílio, autonomia de bateria para 12 horas, e ergonomia ultraleve que se adéqua ao ouvido perfeitamente.",
+    "available": true
+  },
+  {
+    "id": 4,
+    "name": "OrionSound Headset",
+    "brand": "SoundGen",
+    "category": "Áudio",
+    "price": 649.00,
+    "stock": 2,
+    "rating": 4.7,
+    "image_url": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?auto=format&fit=crop&q=80&w=800",
+    "description": "Áudio 3D Espacial com graves profundos. Drivers magnéticos planares e microfone destacável com redução de ruído por IA.",
+    "available": true
+  },
+  {
+    "id": 5,
+    "name": "LumiaX Pro 5G",
+    "brand": "TechMart",
+    "category": "Smartphones",
+    "price": 5499.00,
+    "stock": 35,
+    "rating": 4.5,
+    "image_url": "https://images.unsplash.com/photo-1598327105666-5b89351cb31b?auto=format&fit=crop&q=80&w=800",
+    "description": "A próxima era da conectividade móvel. Tela AMOLED 120hz de 6.8', Câmera de 200MP NightVision, Snapdragon 8 Gen 3 e 16GB de RAM. Bateria de 6000mAh.",
+    "available": true
+  },
+  {
+    "id": 6,
+    "name": "EchoSphere Home",
+    "brand": "SmartLife",
+    "category": "Smart Home",
+    "price": 999.00,
+    "stock": 10,
+    "rating": 4.8,
+    "image_url": "https://images.unsplash.com/photo-1543512214-318c7553f230?auto=format&fit=crop&q=80&w=800",
+    "description": "Controle total no centro da sala. Design em esfera flutuante, áudio 360°, hub Zigbee integrado para gerenciar sua casa inteligente com precisão sem latência.",
+    "available": true
+  },
+  {
+    "id": 7,
+    "name": "QuantumWatch X",
+    "brand": "TechMart",
+    "category": "Wearables",
+    "price": 1499.00,
+    "stock": 1,
+    "rating": 4.4,
+    "image_url": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=800",
+    "description": "Precisão absoluta com cristal de safira e carregamento solar cinético. Monitore sinais vitais em grau médico. Resistente até 100m.",
+    "available": true
+  },
+  {
+    "id": 8,
+    "name": "NovaPad 12 Ultra",
+    "brand": "NovaTech",
+    "category": "Tablets",
+    "price": 4299.00,
+    "stock": 8,
+    "rating": 4.9,
+    "image_url": "https://images.unsplash.com/photo-1589739900243-4b52cd9b104e?auto=format&fit=crop&q=80&w=800",
+    "description": "Produtividade de notebook em um formato fino e leve de tablet. Caneta magnética de baixíssima latência (9ms) inclusa. Ideal para edição e ilustração.",
+    "available": true
+  }
+]

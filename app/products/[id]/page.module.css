@@ -1,0 +1,20 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   app/products/[id]/page.module.css — Estilos da página de Detalhe do Produto
+   TODO: Implemente os estilos do detalhe aqui.
+───────────────────────────────────────────────────────────────────────────── */
+
+.container {
+  /* TODO: layout do container principal */
+}
+
+.backLink {
+  /* TODO: estilo do link de voltar */
+}
+
+.loading {
+  /* TODO: estilo do loading state */
+}
+
+.error {
+  /* TODO: estilo da mensagem de erro / não encontrado */
+}

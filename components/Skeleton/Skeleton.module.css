@@ -1,0 +1,120 @@
+.pulse {
+    animation: pulse-animation 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    background-color: var(--bg-surface-elevated);
+    border-radius: 4px;
+}
+
+@keyframes pulse-animation {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.skeletonCard {
+    background: var(--bg-surface);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border: 1px solid var(--border-light);
+}
+
+.image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 0;
+}
+
+.content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.brand {
+    width: 30%;
+    height: 12px;
+    margin-bottom: 1rem;
+}
+
+.title {
+    width: 90%;
+    height: 20px;
+    margin-bottom: 0.5rem;
+}
+
+.short {
+    width: 60%;
+}
+
+.footer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.price {
+    width: 40%;
+    height: 24px;
+}
+
+.button {
+    width: 100%;
+    height: 38px;
+    border-radius: 8px;
+}
+
+.hero {
+    width: 100%;
+    height: 70vh;
+    min-height: 500px;
+    border-radius: 24px;
+    margin-bottom: 4rem;
+}
+
+.detailContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.heroImage {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 24px;
+}
+
+.detailContent {
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+}
+
+.titleLg {
+    width: 80%;
+    height: 48px;
+    margin-bottom: 0.5rem;
+}
+
+.desc {
+    width: 100%;
+    height: 16px;
+    margin-bottom: 0.5rem;
+}
+
+@media (max-width: 1024px) {
+    .detailContainer {
+        grid-template-columns: 1fr;
+    }
+}
